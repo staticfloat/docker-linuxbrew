@@ -5,7 +5,7 @@
 u=sjackman
 
 # The tag
-t=develop
+t=precise
 
 all: build docker-images.png
 
@@ -29,11 +29,11 @@ push: all
 
 # Image dependencies
 linuxbrew/image: linuxbrew-core/image
-linuxbrew-gcc/image: linuxbrew-core/image
+linuxbrew-gcc/image: linuxbrew-core/image linuxbrew-gcc-deps/image
 linuxbrew-standalone/image: linuxbrew-gcc/image
 
 %/image: %/Dockerfile
-	docker build -t $u/$*:$t $*
+	docker build --squash -t $u/$*:$t $*
 	docker images --no-trunc |awk '$$1 ":" $$2 =="$u/$*:$t" {print $$3}' >$@
 
 docker-images.gv:

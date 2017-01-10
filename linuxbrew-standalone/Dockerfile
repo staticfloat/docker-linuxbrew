@@ -1,4 +1,4 @@
-FROM sjackman/linuxbrew-gcc
+FROM sjackman/linuxbrew-gcc:precise
 MAINTAINER Shaun Jackman <sjackman@gmail.com>
 
 RUN brew install git

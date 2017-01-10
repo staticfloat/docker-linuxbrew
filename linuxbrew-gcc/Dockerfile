@@ -1,4 +1,4 @@
-FROM sjackman/linuxbrew-gcc-deps
+FROM sjackman/linuxbrew-gcc-deps:precise
 MAINTAINER Shaun Jackman <sjackman@gmail.com>
 
 RUN brew install gcc
